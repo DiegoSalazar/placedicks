@@ -7,7 +7,7 @@ class DicksController < ApplicationController
     begin
       url = SUCKR.get_image_url search_query
       image = MiniMagick::Image.open url
-      resize_and_crop image
+      image.resize "#{params[:width]}x#{params[:height]}!"
       tmp_file = Rails.root.join "tmp/#{url.split('/').last}"
       image.write tmp_file.to_s
 
@@ -53,17 +53,5 @@ class DicksController < ApplicationController
     else
       'huge'
     end
-  end
-
-  def resize_and_crop(image)         
-    if image[:width] < image[:height]   
-      remove = ((image[:height] - image[:width])/2).round 
-      image.shave("0x#{remove}") 
-    elsif image[:width] > image[:height] 
-      remove = ((image[:width] - image[:height])/2).round
-      image.shave("#{remove}x0")
-    end
-    image.resize "#{params[:width]}x#{params[:height]}"
-    image
   end
 end
