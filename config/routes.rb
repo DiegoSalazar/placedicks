@@ -1,4 +1,11 @@
 Placedicks::Application.routes.draw do
+  
+  constraints width: /\d+/, height: /\d+/ do
+    get '/:width/:height', to: 'dicks#show'
+  end
+  
+  root to: 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

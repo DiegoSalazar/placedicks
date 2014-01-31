@@ -1,4 +1,15 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+
+group :production do
+  gem 'pg'
+  gem 'unicorn'
+end
+
+gem 'twitter-bootstrap-rails'
+gem 'haml-rails'
+gem 'image_suckr'
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
