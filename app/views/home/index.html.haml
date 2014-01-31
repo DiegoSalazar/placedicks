@@ -1,2 +1,28 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%h1 Place a Dick Anywhere!
+%p 
+  Need to put random dicks in your website? Look no further. Just use our placedick URL in an 
+  %code &lt;img /&gt;
+  tag and you'll be good to go.
+
+%p 
+  %strong Example time!
+
+%pre
+  &lt;img src="http://placedicks.com/500/500" /&gt;
+
+%p 
+  %strong Have a dick, ya filthy animal!
+
+.dickholder= image_tag '/500/500'
+
+%p 
+  %strong What's happening?
+
+%p 
+  When you ask for a dick we'll fire off a random Google Image search with the query: 
+  %code= DicksController::DICK_QUERY
+  \. But, you can customize it by passing in a "q" parameter to the placedicks URL like:
+  %code http://placedicks.com/500/500q=bigger+dicks
+  \. And, of course, it goes without saying that the
+  %code 500/500
+  represent the width and height. Whelp, I said it anyway. Go have a dick!

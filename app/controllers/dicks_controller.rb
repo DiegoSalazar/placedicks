@@ -1,6 +1,7 @@
 class DicksController < ApplicationController
   SUCKR = ImageSuckr::GoogleSuckr.new
   MAX_RETRIES = ENV.fetch('SEARCH_MAX_RETRIES', 5).to_i
+  DICK_QUERY = 'dicks OR penis OR cock OR shlong'
 
   def show
     retries = 0
@@ -27,7 +28,7 @@ class DicksController < ApplicationController
 
   def search_query
     {
-      'q'       => params[:q] || 'dicks OR penis OR cock OR shlong', 
+      'q'       => params[:q] || DICK_QUERY, 
       'imgtype' => params[:imgtype] || 'photo',
       'imgsz'   => image_size_mapping(params[:width], params[:height]),
       'safe'    => 'off', # definitely
