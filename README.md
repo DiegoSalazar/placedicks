@@ -1,4 +1,5 @@
-== README
+Placedicks!
+===========
 
 This is a Rails 4, Google Image Search, and MiniMagick powered placeholder image generator... with dicks!
 
