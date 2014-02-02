@@ -1,34 +1,24 @@
 class DicksController < ApplicationController
   SUCKR = ImageSuckr::GoogleSuckr.new
-  MAX_RETRIES = ENV.fetch('SEARCH_MAX_RETRIES', 5).to_i
-  DICK_QUERY = 'dicks penises cocks'
+  DICKS_QUERY = 'dicks penises cocks'
 
   def show
-    retries = 0
-    begin
-      url = SUCKR.get_image_url search_query
-      image = MiniMagick::Image.open url
-      image.resize "#{params[:width]}x#{params[:height]}!"
-      tmp_file = Rails.root.join "tmp/#{url.split('/').last}"
-      image.write tmp_file.to_s
+    url = SUCKR.get_image_url search_query
+    image = MiniMagick::Image.open url
+    image.resize "#{params[:width]}x#{params[:height]}!"
 
-      send_data tmp_file.read, {
-        disposition: 'inline', 
-        filename:    url.split('/').last, 
-        type:        image.mime_type
-      }
-    rescue OpenURI::HTTPError => e
-      retries += 1
-      retry unless retries >= MAX_RETRIES 
-      raise e
-    end
+    send_data image.to_blob, {  
+      disposition: 'inline', 
+      filename: url.split('/').last, 
+      type: image.mime_type
+    }
   end
 
   private
 
   def search_query
     {
-      'q'       => params[:q] || DICK_QUERY, 
+      'q'       => params[:q] || DICKS_QUERY, 
       'imgtype' => params[:imgtype] || 'photo',
       'imgsz'   => image_size_mapping(params[:width], params[:height]),
       'safe'    => 'off', # definitely
