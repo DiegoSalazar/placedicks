@@ -9,7 +9,7 @@ Go on... Try it...
 
 [Placedicks](http://placedicks.com)
 
-Honestly, I didn't need to use Rails for this but with it I could get it up really quickly, and, with dicks that's important.
+Honestly, I didn't need to use Rails for this but with it I could get it up really quickly and, with dicks that's important.
 
 ## Todos
 
