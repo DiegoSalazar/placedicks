@@ -12,6 +12,6 @@ Go on... Try it...
 
 ## Todos
 
-* Images aren't random enough.
+* Images aren't random enough, add more sources.
 * Implement a cache.
 * Let people upload their dicks, people love this.
