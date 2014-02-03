@@ -10,5 +10,8 @@ Go on... Try it...
 [Placedicks](http://placedicks.com)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Todos
+
+* Images aren't random enough.
+* Implement a cache.
+* Let people upload their dicks, people love this.
